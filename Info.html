@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de location de box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.phenix-recyclage.com/img/global/phenix-recyclage.png" alt="Logo Phenix" class="logo">
+        </header>
+        
+        <h1>Formulaire de location de box</h1>
+        <form id="rental-form">
+            <!-- Informations personnelles -->
+            <div class="form-group">
+                <label for="first-name">Prénom</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Nom</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Adresse de facturation -->
+            <div class="form-group">
+                <label for="street-number">Numéro de voie</label>
+                <input type="text" id="street-number" name="street-number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="street-name">Nom de voie</label>
+                <input type="text" id="street-name" name="street-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="postal-code">Code Postal</label>
+                <input type="text" id="postal-code" name="postal-code" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ville</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <!-- Choix de la taille du box -->
+            <div class="form-group">
+                <label for="box-size">Choisissez la taille du box</label>
+                <select id="box-size" name="box-size" required>
+                    <option value="15">15 m² - 90€</option>
+                    <option value="30">30 m² - 120€</option>
+                </select>
+            </div>
+
+            <!-- Choix de l'assurance -->
+            <div class="form-group">
+                <label for="insurance">Type d'assurance</label>
+                <select id="insurance" name="insurance" required>
+                    <option value="simple">Simple</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="premium">Premium</option>
+                    <option value="personal">Passer par mon assurance personnelle</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Suivant</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

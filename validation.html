@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récapitulatif de la commande</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.phenix-recyclage.com/img/global/phenix-recyclage.png" alt="Logo Phenix" class="logo">
+        </header>
+
+        <h1>Récapitulatif de votre commande</h1>
+
+        <p><strong>Nom :</strong> <span id="recap-name"></span></p>
+        <p><strong>Email :</strong> <span id="recap-email"></span></p>
+        <p><strong>Box sélectionné :</strong> <span id="recap-box-size"></span></p>
+        <p><strong>Type d'assurance :</strong> <span id="recap-insurance"></span></p>
+
+        <!-- CGU et CGV -->
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="accept-cgu" required> J'accepte les <a href="CGU.pdf" target="_blank">Conditions Générales d'Utilisation</a> et les <a href="CGV.pdf" target="_blank">Conditions Générales de Vente</a>.
+            </label>
+        </div>
+
+        <!-- Bouton de validation -->
+        <button id="validate-btn" class="btn" disabled>Valider</button>
+    </div>
+
+    <script>
+        document.getElementById('accept-cgu').addEventListener('change', function() {
+            document.getElementById('validate-btn').disabled = !this.checked;
+        });
+
+        document.getElementById('validate-btn').addEventListener('click', function() {
+            const userData = {
+                firstName: 'Jean', // à remplacer par les données du formulaire
+                lastName: 'Dupont',
+                email: 'email@example.com',
+                streetNumber: '10',
+                streetName: 'Rue de Paris',
+                postalCode: '75001',
+                city: 'Paris',
+                boxSize: '15',
+                price: '90',
+                insurance: 'Simple'
+            };
+
+            // Envoi des données au backend
+            fetch('http://localhost:3000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Email envoyé avec succès!');
+            })
+            .catch(error => {
+                alert('Une erreur est survenue');
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

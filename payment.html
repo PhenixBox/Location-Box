@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordonnées Bancaires</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.phenix-recyclage.com/img/global/phenix-recyclage.png" alt="Logo Phenix" class="logo">
+        </header>
+
+        <h1>Coordonnées Bancaires</h1>
+        
+        <form id="payment-form">
+            <div id="card-element"></div> <!-- Stripe Element pour la carte bancaire -->
+            <button type="submit" class="btn">Payer et valider</button>
+        </form>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
